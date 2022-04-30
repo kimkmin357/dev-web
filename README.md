@@ -76,9 +76,9 @@
     app.use('/react/*', express.static(path.join(__dirname, '/build')));
     ```
 
-    **/react-app** : React 프로젝트의 package에 "hompage"항목에 정의된 경로
+    **/react** : React 프로젝트의 package에 "hompage"항목에 정의된 경로
     
-    **/react-project/build** : React 프로젝트 빌드해서 얻어낸 build 폴더 경로
+    **/build** : React 프로젝트 빌드해서 얻어낸 build 폴더 경로(index.js 파일 존재하는 위치를 기준)
 
 7. Client를 위한 Server쪽 API 호출 라우팅(index.js)
     ```javascript
