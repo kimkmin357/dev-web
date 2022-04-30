@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "npm-run-all --parallel start:**",
-    "start:server": "supervisor ./server/nodeServer.js",
+    "start:server": "supervisor ./index.js",
     "start:client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

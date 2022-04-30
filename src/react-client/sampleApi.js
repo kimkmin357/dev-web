@@ -12,7 +12,7 @@ function SampleAPI() {
         // });
 
         // 프록시로 등록한 서버주소가 생략됨
-        fetch('http://localhost:8085/api/api1')
+        fetch('http://kimkmin357.synology.me:8082/api/api1')
           .then(res => res.json())
           // json형식으로 받아온 값을 setState를 이용해 값을 재설정해줌
           .then(function(res){
@@ -27,7 +27,7 @@ function SampleAPI() {
       // });
 
       // 프록시로 등록한 서버주소가 생략됨
-      fetch('http://localhost:8085/api/api2')
+      fetch('http://kimkmin357.synology.me:8082/api/api2')
         .then(res => res.json())
         // json형식으로 받아온 값을 setState를 이용해 값을 재설정해줌
         .then(function(res){
