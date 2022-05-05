@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# **react 개발 스터디**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+생활코딩 react 2022 개정판 강좌 실습
 
-## Available Scripts
+## Language 
 
-In the project directory, you can run:
+React, Node.js, javascript, HTML, CSS
 
-### `npm start`
+## Environment
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Window10 64bit, Visual Studio Code 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 생활코딩 react 2022년 개정판 강좌 노트
+1.  react를 사용하여 복잡한 html 코드를 간단하게 해줄 수 있다.
 
-### `npm test`
+    class vs function 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    최근에는 function 방식으로 만드는 경우가많아져서 이 강의에서는 function 방식으로 진행
 
-### `npm run build`
+2.  npx create-react-app {프로젝트 명}
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    npm create-react-app {프로젝트 명}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    create-react-app 역시 다운받아 사용하는 모듈인데
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    npm을 사용할 경우 create-react-app을 나의 PC에 설치해서 사용하겠다는 의미이고
 
-### `npm run eject`
+    npx를 사용할 경우 create-react-app이라는 모듈을 임시로 설치(실행)해서 사용하고 휘발시켜버리겠다는 것임.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    나는 npx를 이용해서 설치함.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    npx를 사용하기 위해서는 nodejs를 설치하면 된다.(*https://nodejs.org/ko/download/*)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    코드에디터는 VSCode 사용함.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    원하는 폴더를 불러오기함.
 
-## Learn More
+    Ctrl+Shift+` 로 터미널 창 띄워서 npx create-react-app . 실행(현재 디렉토리에 설치)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    npm start 입력시 실행.
+    
+    ![react 실행 화면](https://user-images.githubusercontent.com/97032125/166712495-ba72d26f-9dea-4b73-b7fb-6b6ea13c58a1.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3.  소스코드 수정방법
 
-### Code Splitting
+    index.html에 정의된 형식으로 page가 구성되는데 root라는 태그를 통해 react로 구현한 화면을 렌더링해주는 개념.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    index.js 의 document.getElementById('root')로 root 태그를 참조하는 것을 확인할 수 있음.
+    
+    index.js 파일 내용중 App.js를 연동시키는 <App />이라는 코드가 있고
 
-### Analyzing the Bundle Size
+    App.js를 수정하면 root 태그로 렌더링되는 UI가 변경됨.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    Ass.css가 App.js의 UI Design이 됨.
 
-### Making a Progressive Web App
+    배포 방법
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    터미널 창에서 npm build 실행하면 build폴더가 생기고 최적화된 index.html 파일이 생성됨
 
-### Advanced Configuration
+    npx serve -s build를 실행하면 개발버전이 아닌 배포버전으로 react 페이지를 접속할 수 있음.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    
+4.  사용자 정의 태그를 만든다. 반드시 대문자로 시작해야함.
 
-### Deployment
+    사용자 정의 태그를 react에서는 Component라고 함.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    
