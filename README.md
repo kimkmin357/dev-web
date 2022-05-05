@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+ # **Nodejs Express와 React 연동**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- ```html
+<br>
+<br>
+``` -->
 
-## Available Scripts
+## **참고**
+*https://velog.io/@sae1013/React-%EC%99%80-Node.js-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0*
 
-In the project directory, you can run:
+*https://codingapple.com/unit/nodejs-react-integration/*
 
-### `npm start`
+## **순서 및 코드설명**
+1. React App 생성
+    * ex) 'begin-react'라는 이름으로 App 생성 **npx create-react-app begin-react**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. React App의 Package.json에서 homepage 경로 설정
+    * Server의 index.js에서 설정했던 라우팅 주소와 일치
+   ```json
+    "name": "begin-react",
+    "version": "0.1.0",
+    "homepage": "/react",
+    "private": true,
+    "dependencies": {
+    ....
+   ```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. Proxy 기능 추가(http-proxy-middleware 활용) : Client -> Server 쪽으로 API 요청을 처리하기 위함
+    * Proxy 설정 : src/setProxy.js 생성 및 아래 코드 작성
+    ```javascript
+    const proxy = require('http-proxy-middleware');
 
-### `npm test`
+    module.exports = function (app) {
+        app.use(
+            proxy('/api',{
+                target :'http://localhost:8082/',
+                changeOrigin: true,
+                pathRewrite: { '^/api': '' },
+            })
+        );
+    };
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. Express Server 쪽으로 API 호출법
+    ```javascript
+    fetch('http://kimkmin357.synology.me:8082/api/api1')
+        .then(res => res.json())
+        // json형식으로 받아온 값을 setState를 이용해 값을 재설정해줌
+        .then(function(res){
+            setData(JSON.stringify(res))
+        });
+    ```
 
-### `npm run build`
+5. Nodejs Express 설치
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    * express 설치: npm install --save => 현재 프로젝트에서만 express를 사용하겠다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    * React App 내부에서 index.js 파일 생성(express 서버 구동 코드 작성)
+    ```javascript
+    const port = 8082;
+    app.listen(port, ()=>{
+        console.log(`express server is running on ${port} port`);
+    })
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+6. CORS 설정 => 서버쪽 IP와 PORT정보를 활용하여 React Client 쪽 라우팅을 사용할 경우
 
-### `npm run eject`
+    * CORS 설정(index.js)
+    ```javascript
+    const cors = require('cors');
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    app.use(cors());
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    // express server ip와 port를 활용하여 react에서 만든 page를 접근하기 위한 라우팅
+    app.use('/react/', express.static(path.join(__dirname, '/build')));
+    app.use('/react/*', express.static(path.join(__dirname, '/build')));
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    **/react** : React 프로젝트의 package에 "hompage"항목에 정의된 경로
+    
+    **/build** : React 프로젝트 빌드해서 얻어낸 build 폴더 경로(index.js 파일 존재하는 위치를 기준)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+7. Client를 위한 Server쪽 API 호출 라우팅(index.js)
+    ```javascript
+    // client의 api 호출에 대한 라우팅. react의 package.json의 homepage 경로와 일치
+    app.use('/api', api);
+    ```
