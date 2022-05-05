@@ -64,4 +64,9 @@ Window10 64bit, Visual Studio Code
 
     사용자 정의 태그를 react에서는 Component라고 함.
 
-    
+
+5.  props
+
+    Component에 속성값을 주는 개념
+
+    li 태그는 key라는 속성값을 사용하여 고유값을 설정해줘야함 
