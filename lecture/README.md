@@ -70,3 +70,7 @@ Window10 64bit, Visual Studio Code
     Component에 속성값을 주는 개념
 
     li 태그는 key라는 속성값을 사용하여 고유값을 설정해줘야함 
+
+6.  이벤트
+
+    Component에 이벤트(함수)를 추가하는 방법
