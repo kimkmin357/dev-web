@@ -1,4 +1,4 @@
-# Nodejs Express와 React 연동 관련
+# Nodejs Express와 React 연동하는 방법
 
 1. React App 생성
     * ex) 'begin-react'라는 이름으로 App 생성 **npx create-react-app begin-react**
