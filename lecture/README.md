@@ -74,3 +74,24 @@ Window10 64bit, Visual Studio Code
 6.  이벤트
 
     Component에 이벤트(함수)를 추가하는 방법
+
+7.  state
+
+    prop : Component를 사용하는 외부자를 위한 데이터
+    state : Component를 만드는 내부자를 위한 데이터
+
+8.  create
+
+    const[value, setValue] = useState(PRIMITIVE);
+    ex) string, number, bigint, boolean, undefined, symbol, null
+
+    state의 타입이 PRIMITIVE 일 경우는 설정된 Set 함수 사용하면 됨
+
+    const[value, setValue] = useState(Object);
+    ex) object, array
+
+    state의 타입이 Object일 경우는 아래와 같이 사용해야 함
+
+    newValue = {...value}   // state로 설정된 value값을 복사해옴
+    newValue 변경           // 복사해온 변수를 사용하여 값을 변경
+    setValue(newValue)      // 최종적으로 Set함수로 원 데이터 변경
