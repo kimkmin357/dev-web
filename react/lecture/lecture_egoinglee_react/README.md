@@ -101,3 +101,9 @@ Window10 64bit, Visual Studio Code
     Component 내에서 set함수로 해당 데이터를 변경해서 
 
     Component를 호출한 곳으로 데이터를 돌려보낼 수 있다
+
+10. delete
+
+
+# Reference
+- [생활코딩 지식지도 서말](https://seomal.com/map/1/220)
