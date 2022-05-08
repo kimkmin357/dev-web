@@ -1,4 +1,23 @@
-# Nodejs Express와 React 연동하는 방법
+# React에서 Nodejs Server의 API를 호출하는 Toy Project
+
+## 프로젝트 구동 및 페이지 설명
+
+-   npm start 로 nodejs 백엔드 서버와 react 프론트엔드 서버를 구동함
+
+-   크롬 브라우저에서 localhost:8082/react/ 접속하면 아래와 같은 main page 나타남
+
+    ![kimkmin357 react main](https://user-images.githubusercontent.com/97032125/167298144-d695f1d2-fe43-4d12-a89d-728f2694603e.png)
+
+-   localhost:8082/react/sampleApi 접속하면 아래와 같은 Page가 나타나고
+
+    [GetDataFromServer1], [GetDataFromServer2] 버튼이 있음
+
+    각 버튼을 누르면 nodejs server의 api를 호출하여 server로부터 json 형식의 데이터를 받아서 화면에 출력하게 된다.
+
+    ![sampleApi](https://user-images.githubusercontent.com/97032125/167298353-553e4861-28fb-4d2a-9cdd-074e317dbd60.png)
+
+
+## Nodejs Express와 React 연동하는 방법
 
 1. React App 생성
 
@@ -30,7 +49,7 @@
             ...생략...
         ```
 
-        => React App 생성하면서 만들어진 pacjage.json 파일의 "dependencies"에 "express" 모듈이 포함된 것 확인할 수 있음
+        => React App 생성하면서 만들어진 package.json 파일의 "dependencies"에 "express" 모듈이 포함된 것 확인할 수 있음
 
     * React App 내부에서 index.js 파일 생성(express 서버 구동 코드 작성)
 
