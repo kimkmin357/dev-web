@@ -95,3 +95,11 @@ Window10 64bit, Visual Studio Code
     newValue = {...value}   // state로 설정된 value값을 복사해옴
     newValue 변경           // 복사해온 변수를 사용하여 값을 변경
     setValue(newValue)      // 최종적으로 Set함수로 원 데이터 변경
+
+9.  update
+
+    Component로 보내진 데이터(props)를 state로 변경하여
+
+    Component 내에서 set함수로 해당 데이터를 변경해서 
+
+    Component를 호출한 곳으로 데이터를 돌려보낼 수 있다
