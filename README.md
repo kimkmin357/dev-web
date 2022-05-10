@@ -1,1 +1,1 @@
-# dev-web Repository 정리를 위한 브랜치 생성
+#javascript 스터디용 브랜치 생성
