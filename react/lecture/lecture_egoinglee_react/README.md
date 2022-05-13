@@ -8,42 +8,14 @@ React, Node.js, javascript, HTML, CSS
 
 Window10 64bit, Visual Studio Code 
 
-## 환경 설정
-1.  VSCode 설치
+## 생활코딩 react 2022년 개정판 강좌 노트
+1.  react를 사용하여 복잡한 html 코드를 간단하게 해줄 수 있다.
 
-    [VSCode 설치](https://code.visualstudio.com/download)
+    class vs function 
 
-2.  VSCode 실행 및 프로젝트로 설정할 폴더열기
+    최근에는 function 방식으로 만드는 경우가많아져서 이 강의에서는 function 방식으로 진행
 
-    ![VSCode Folder Open](https://user-images.githubusercontent.com/97032125/167660329-43ea236e-7a79-48e2-9d47-c4be3b51e72d.png)
-
-3.  터미널 창 열기
-
-    Ctrl + Shift +`
-
-    ![VSCode Terminal](https://user-images.githubusercontent.com/97032125/167667449-aba80300-7a92-42ff-9014-eecdc57bed36.png)
-
-4.  React App 생성
-
-    npx create-react-app {프로젝트 명}
-
-    또는
-
-    npm create-react-app {프로젝트 명}
-
-    create-react-app이라는 모듈로 react app을 생성할 수 있음
-
-    npm을 사용할 경우 create-react-app을 나의 PC에 설치해서 사용하겠다는 의미이고
-
-    npx를 사용할 경우 create-react-app이라는 모듈을 임시로 설치(실행)해서 사용하고 삭제하겠다는 것
-
-    여기서는 npx를 이용함
-
-    npx를 사용하기 위해서는 nodejs를 설치하면 됨
-    
-    [Nodejs설치](https://nodejs.org/ko/download/)
-
-5.  npx create-react-app {프로젝트 명}
+2.  npx create-react-app {프로젝트 명}
 
     npm create-react-app {프로젝트 명}
 
@@ -66,15 +38,6 @@ Window10 64bit, Visual Studio Code
     npm start 입력시 실행.
     
     ![react 실행 화면](https://user-images.githubusercontent.com/97032125/166712495-ba72d26f-9dea-4b73-b7fb-6b6ea13c58a1.png)
-
-## 생활코딩 react 2022년 개정판 강좌 노트
-1.  -
-
-2.  react를 사용하여 복잡한 html 코드를 간단하게 해줄 수 있다.
-
-    class vs function 
-
-    최근에는 function 방식으로 만드는 경우가많아져서 이 강의에서는 function 방식으로 진행
 
 3.  소스코드 수정방법
 
