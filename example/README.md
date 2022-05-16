@@ -57,6 +57,8 @@
 
     -   [Express에서 정적 파일 제공](https://expressjs.com/ko/starter/static-files.html)
 
+    -   [[JS] 모듈에 대한 이해와 사용법](https://baeharam.netlify.app/posts/javascript/module)
+    
     -   [nodejs ejs](https://devkingdom.tistory.com/81)
 
     -   [EJS로 HTML에 데이터 전달하기](https://itsjh.tistory.com/6)
