@@ -5,8 +5,8 @@ require('dotenv').config()  //.env 파일에 정의된 환경변수값 사용(Ma
 const router = require('./routes/index')
 const db = require('./db/db');
 
-//console.log("### process.env ### " + process.env.PORT + " " + process.env.MONGO_URL + " " + process.env.NODE_ENV)
-const PORT  = process.env.PORT;
+console.log("### process.env ### " + process.env.PORT + " " + process.env.MONGO_URI + " " + process.env.NODE_ENV)
+let PORT  = process.env.PORT || 8082;
 
 // public 폴더를 static으로 설정하여 Client가 Server의 데이터를(html, img 등) 다이렉트로 접근 할 수 있도록 설정
 // ex) localhost:3001/home.html   => 라우팅 없이도 접근가능

@@ -53,6 +53,8 @@
 
     -   [Node.js 기반에서 환경변수 사용하기](https://velog.io/@public_danuel/process-env-on-node-js)
 
+    -   [dotenv로 환경변수 설정하기](https://velog.io/@iamhayoung/dotenv%EB%9E%80-Node.jsExpress%EC%97%90%EC%84%9C-dotenv%EB%A1%9C-%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
+
     -   [Express에서 정적 파일 제공](https://expressjs.com/ko/starter/static-files.html)
 
     -   [nodejs ejs](https://devkingdom.tistory.com/81)
@@ -61,8 +63,14 @@
 
     -   [mongodb schema](https://www.zerocho.com/category/MongoDB/post/59a1870210b942001853e250)
 
+    -   [URI랑 URL 차이점이 뭔데?](https://www.charlezz.com/?p=44767)
+
 4. 향후 보완점
+
     - Join 예외처리
+
     - Login 예외처리
+
     - Login 세션방식 구현
+
     - Login 후 main page 구현
