@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <heaad>
+        <meta charset="utf-8">
+        <title>Join Form</title>
+    </heaad>
+    <body>
+        <h1 style="color:blue">Join !</h1>
+        <form action="/join" method="post">
+            NAME : <input type="text" name="name"><br>
+            ID : <input type="text" name="id"><br>
+            PW : <input type="text" name="pw"><br>
+            <input type="submit" value="Join" id="sumit" disabled="disabled"><br>
+        </form>
+              
+        <button class="ajaxsend">Check ID</button><br>
+        <a href="/home">home</a><br>
+        <a href="/login">login</a><br>
+
+
+        <script>
+            // 페이지 전체를 load 하지 않고 서버로부터 원하는 데이터만 받아서 처리할 수 있는 ajax 활용
+            document.querySelector('.ajaxsend').addEventListener('click', () => {
+                let jsonObj = new Object();
+
+                jsonObj.name = document.forms[0].elements[0].value;
+                jsonObj.id = document.forms[0].elements[1].value;
+                jsonObj.pw = document.forms[0].elements[2].value;
+                if(jsonObj.name == "" || jsonObj.id == "" || jsonObj.pw == "") 
+                {
+                    alert("누락된 입력이 없는지 확인해주세요");
+                    return;
+                }
+
+                // sendAjax('http://localhost:3000/join/ajax_id_duplicate_check', jsonObj);
+                sendAjax('/join/ajax_id_duplicate_check', jsonObj);
+            })
+
+            function sendAjax(url, jsonObj){
+                let loginData = JSON.stringify(jsonObj);
+
+                let xhr = new XMLHttpRequest();
+                xhr.open('POST', url);
+                xhr.setRequestHeader('Content-Type', "application/json");
+                xhr.send(loginData);
+                xhr.addEventListener('load', () => {
+                    console.log(xhr.responseText);
+                    let result = JSON.parse(xhr.responseText);
+                    if(result.result !== "ok") 
+                    {
+                        alert(result.id + " 중복된 ID 입니다.");
+                        return;
+                    }
+
+                    document.getElementById("sumit").disabled = false;
+                    alert(result.id + " 가능한 ID 입니다.");
+                });
+            }
+        </script>
+    </body>
+</html>
