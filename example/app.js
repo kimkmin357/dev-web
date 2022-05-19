@@ -3,7 +3,16 @@ const app = express()
 const path = require('path')
 require('dotenv').config()  //.env 파일에 정의된 환경변수값 사용(MacOS, Windows, Linux 등 다양한 OS에 따른 환경변수 설정이 다른것에 대해 유연하게 대처하기 위해)
 const router = require('./routes/index')
-const db = require('./db/db');
+var db
+
+if (NODE_ENV == 'DEV') 
+{
+    db = require('./db/db_dev');
+}
+else
+{
+    db = require('./db/db');
+}
 
 console.log("### process.env ### " + process.env.PORT + " " + process.env.MONGO_URI + " " + process.env.NODE_ENV)
 let PORT  = process.env.PORT || 8082;

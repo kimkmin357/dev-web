@@ -1,6 +1,6 @@
 // mongodb://{아이디}:{비밀번호}@{mongodb 서버 도메인}:{mongodb 서버 포트}/?authMechanism=DEFAULT
-let MONGO_URI  = process.env.MONGO_URI || 'mongodb://sa:init123!!@kimkmin357.synology.me:27017/?authMechanism=DEFAULT'
-let NODE_ENV = process.env.NODE_ENV || 'PRODUCTION'
+let MONGO_URI  = process.env.MONGO_URI
+let NODE_ENV = process.env.NODE_ENV
 
 // mongoose 모듈 가져오기
 const mongoose = require('mongoose');
