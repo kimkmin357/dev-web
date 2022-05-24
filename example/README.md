@@ -35,14 +35,14 @@
     │   ├── login_form.html     // login 페이지에 보여지는 정적 html 화면
     │   └── main.html           // main 페이지에 보여지는 정적 html 화면
     ├── routes                  // routing 폴더
+    │   ├── auth.js             // login 인증 미들웨어 js 파일
+    │   ├── home.js             // home 페이지 관련 라우팅 설정(POST,GET API)
     │   ├── index.js            // router 통합 관리 js 파일
     │   ├── join.js             // join 페이지 관련 라우팅 설정(POST,GET API)
-    │   ├── login.js            // login 페이지 관련 라우팅 설정(POST,GET API)
-    │   └── main.js             // main 페이지 관련 라우팅 설정(POST,GET API)
+    │   └── login.js            // login 페이지 관련 라우팅 설정(POST,GET API)
     ├── views                   // Embedded JavaScript Template Default Folder
     │   ├── result_login.ejs    // login 결과를 출력하는 ejs 파일
     │   └── success_join.ejs    // join 결과를 출력하는 ejs 파일
-    ├── .env                    // 현재 nodejs 프로젝트 환경변수 파일
     ├── app.js                  // nodejs entry 파일(mongodb 서버 연결 및 nodejs 서버 구동)
     ├── package-lock.json       
     ├── package.json
@@ -67,12 +67,19 @@
 
     -   [URI랑 URL 차이점이 뭔데?](https://www.charlezz.com/?p=44767)
 
+    -   [Mongoose(몽구스) 프로미스](https://www.zerocho.com/category/MongoDB/post/59b6228e92f5830019d41ac4)
+
+    -   [javascript async와 await](https://joshua1988.github.io/web-development/javascript/js-async-await/)
+
+    -   [nodejs 개념 이해하기](https://hanamon.kr/nodejs-%EA%B0%9C%EB%85%90-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0/)
+
+
+    -   [[Node.js-React-MongoDB] 로그인 웹 애플리케이션 구현](https://gaga-kim.tistory.com/entry/Nodejs-React-MongoDB-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B5%AC%ED%98%84)
+
+    -   [express mongodb 활용하기 - 로그인 기능 만들기 (jwt)](https://loy124.tistory.com/246)
+
+    -   [[Node.js] json web token 기반의 Auth 구현](https://donggoolosori.github.io/2020/12/15/jwt/)
+
 4. 향후 보완점
 
-    - Join 예외처리
-
-    - Login 예외처리
-
-    - Login 세션방식 구현
-
-    - Login 후 main page 구현
+    - nodejs의 view부분을 ejs에서 react로 변경하는 작업
