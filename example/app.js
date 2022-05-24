@@ -3,14 +3,24 @@ const app = express()
 const path = require('path')
 require('dotenv').config()  //.env 파일에 정의된 환경변수값 사용(MacOS, Windows, Linux 등 다양한 OS에 따른 환경변수 설정이 다른것에 대해 유연하게 대처하기 위해)
 const router = require('./routes/index')
-var db
+const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser');
 
-if (NODE_ENV == 'DEV') 
-{
+// Client로부터의 데이터를 body로 접근하기 위한 설정
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:true}))
+app.use(cookieParser()); // cookieParser(secretKey, optionObj)
+
+// ejs를 사용하기 위한 설정, views폴더 하위의 .ejs 파일을 사용하도록 설정
+// app.set('view engine', 'ejs')
+// app.set("views", path.join(__dirname, "../views"));
+
+let db
+
+if (process.env.NODE_ENV == 'DEV') {
     db = require('./db/db_dev');
 }
-else
-{
+else{
     db = require('./db/db');
 }
 
@@ -26,14 +36,8 @@ app.use(express.static(staticPath))
 // routing 설정, ./routes/index.js 파일 연결
 app.use(router)
 
-// db/db.js 파일의 connect 함수 실행
-db.connect(function(result){
-    if(result == 'ok') // DB 연결시에만 nodejs server를 실행
-    {
-        app.listen(PORT, () => console.log('Example app listening on port' + PORT))
-    }
-    else
-    {
-        process.exit()
-    }
-})
+// db/db.js 파일의 connect 함수 실행 DB연결 안되면 프로그램 종료
+db.connect()
+
+app.listen(PORT, () => console.log('Example app listening on port' + PORT))
+

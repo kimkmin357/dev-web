@@ -8,9 +8,13 @@
         <h1><%= response %></h1>
         <% if (result) { %>
             <img src="images/login.png" alt="" width="300px;"><br>
+            <a href="/login">go to login page</a><br>
+            <a href="/auth">check auth</a><br>
+            <a href="/logout">logout</a><br>
         <% } else { %>
             <img src="images/login_err.png" alt="" width="100px;"><br>
+            <a href="/login">go to login page</a><br>
         <% } %>
-        <a href="/login">go to login page</a>
+        
     </body>
 </html>
