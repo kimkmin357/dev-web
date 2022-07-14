@@ -82,11 +82,7 @@ const Signup = () => {
         <section>
           <h1>Success!</h1>
           <p>
-<<<<<<< HEAD
             <a href="/react/clock">Clock</a>
-=======
-            <a href="/clock">Main Page</a>
->>>>>>> react-ex1
           </p>
         </section>
       ) : (
